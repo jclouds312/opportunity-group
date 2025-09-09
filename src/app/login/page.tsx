@@ -17,6 +17,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2 } from "lucide-react";
+import { BackButton } from "@/components/back-button";
 
 const formSchema = z.object({
   email: z.string().email({ message: "Por favor, ingrese un correo electrónico válido." }),
@@ -93,6 +94,7 @@ export default function LoginPage() {
       <div className="absolute inset-0 bg-background/80 backdrop-blur-sm -z-10" />
       <Card className="w-full max-w-sm">
         <CardHeader className="text-center">
+          <BackButton />
           <CardTitle className="text-2xl font-headline">Iniciar Sesión</CardTitle>
           <CardDescription>
             Ingrese su correo electrónico a continuación para iniciar sesión en su cuenta

@@ -17,6 +17,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2 } from "lucide-react";
+import { BackButton } from "@/components/back-button";
 
 const formSchema = z.object({
   firstName: z.string().min(1, { message: "El nombre es requerido." }),
@@ -106,6 +107,7 @@ export default function SignupPage() {
       <div className="absolute inset-0 bg-background/80 backdrop-blur-sm -z-10" />
       <Card className="w-full max-w-sm">
         <CardHeader className="text-center">
+          <BackButton />
           <CardTitle className="text-2xl font-headline">Crear una Cuenta</CardTitle>
           <CardDescription>
             Ingrese su información para crear una cuenta nueva

@@ -1,3 +1,4 @@
+import { BackButton } from "@/components/back-button";
 import { RecommendationsForm } from "@/components/recommendations-form";
 
 export default function RecommendationsPage() {
@@ -8,6 +9,9 @@ export default function RecommendationsPage() {
         <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">
           Utilice nuestra herramienta de inteligencia artificial para recibir recomendaciones de inversión personalizadas basadas en su perfil único.
         </p>
+      </div>
+      <div className="flex justify-start">
+        <BackButton />
       </div>
       <RecommendationsForm />
     </div>
