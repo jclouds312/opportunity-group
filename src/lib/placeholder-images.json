@@ -1,3 +1,82 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-background",
+      "description": "Abstract financial tech background",
+      "imageUrl": "https://picsum.photos/seed/1/1920/1080",
+      "imageHint": "abstract tech"
+    },
+    {
+      "id": "product-feature",
+      "description": "Man browsing digital products on a tablet",
+      "imageUrl": "https://picsum.photos/seed/2/600/400",
+      "imageHint": "digital product"
+    },
+    {
+      "id": "investment-feature",
+      "description": "Stock market graphs on a screen",
+      "imageUrl": "https://picsum.photos/seed/3/600/400",
+      "imageHint": "stock market"
+    },
+    {
+      "id": "ai-feature",
+      "description": "Abstract representation of AI network",
+      "imageUrl": "https://picsum.photos/seed/4/600/400",
+      "imageHint": "artificial intelligence"
+    },
+    {
+      "id": "product-1",
+      "description": "Digital product placeholder 1",
+      "imageUrl": "https://picsum.photos/seed/10/600/400",
+      "imageHint": "software interface"
+    },
+    {
+      "id": "product-2",
+      "description": "Digital product placeholder 2",
+      "imageUrl": "https://picsum.photos/seed/11/600/400",
+      "imageHint": "online course"
+    },
+    {
+      "id": "product-3",
+      "description": "Digital product placeholder 3",
+      "imageUrl": "https://picsum.photos/seed/12/600/400",
+      "imageHint": "ebook cover"
+    },
+     {
+      "id": "product-4",
+      "description": "Digital product placeholder 4",
+      "imageUrl": "https://picsum.photos/seed/13/600/400",
+      "imageHint": "analytics dashboard"
+    },
+    {
+      "id": "investment-1",
+      "description": "Investment opportunity placeholder 1",
+      "imageUrl": "https://picsum.photos/seed/20/600/400",
+      "imageHint": "renewable energy"
+    },
+    {
+      "id": "investment-2",
+      "description": "Investment opportunity placeholder 2",
+      "imageUrl": "https://picsum.photos/seed/21/600/400",
+      "imageHint": "biotechnology research"
+    },
+    {
+      "id": "investment-3",
+      "description": "Investment opportunity placeholder 3",
+      "imageUrl": "https://picsum.photos/seed/22/600/400",
+      "imageHint": "real estate"
+    },
+    {
+      "id": "investment-4",
+      "description": "Investment opportunity placeholder 4",
+      "imageUrl": "https://picsum.photos/seed/23/600/400",
+      "imageHint": "startup company"
+    },
+    {
+      "id": "auth-background",
+      "description": "Abstract background for authentication pages",
+      "imageUrl": "https://picsum.photos/seed/30/1920/1080",
+      "imageHint": "abstract pattern"
+    }
+  ]
 }
