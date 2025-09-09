@@ -2,26 +2,26 @@
   "placeholderImages": [
     {
       "id": "hero-background",
-      "description": "Abstract financial tech background",
-      "imageUrl": "https://picsum.photos/seed/1/1920/1080",
-      "imageHint": "abstract tech"
+      "description": "Miami skyline at sunset",
+      "imageUrl": "https://picsum.photos/seed/miami-skyline/1920/1080",
+      "imageHint": "Miami skyline"
     },
     {
       "id": "product-feature",
-      "description": "Man browsing digital products on a tablet",
-      "imageUrl": "https://picsum.photos/seed/2/600/400",
-      "imageHint": "digital product"
+      "description": "Business professional using a tablet in a modern office",
+      "imageUrl": "https://picsum.photos/seed/office-tablet/600/400",
+      "imageHint": "business professional"
     },
     {
       "id": "investment-feature",
-      "description": "Stock market graphs on a screen",
-      "imageUrl": "https://picsum.photos/seed/3/600/400",
-      "imageHint": "stock market"
+      "description": "Abstract visualization of financial data and charts",
+      "imageUrl": "https://picsum.photos/seed/financial-charts/600/400",
+      "imageHint": "financial data"
     },
     {
       "id": "ai-feature",
-      "description": "Abstract representation of AI network",
-      "imageUrl": "https://picsum.photos/seed/4/600/400",
+      "description": "Futuristic AI brain graphic",
+      "imageUrl": "https://picsum.photos/seed/ai-brain/600/400",
       "imageHint": "artificial intelligence"
     },
     {

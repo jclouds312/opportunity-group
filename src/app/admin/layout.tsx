@@ -20,7 +20,7 @@ import {
   ShoppingBag,
   Users,
   Landmark,
-  ShieldCheck
+  Briefcase
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -30,7 +30,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       <Sidebar>
         <SidebarHeader>
           <div className="flex items-center gap-2">
-            <ShieldCheck className="w-6 h-6 text-primary" />
+            <Briefcase className="w-6 h-6 text-primary" />
             <span className="text-lg font-semibold font-headline text-sidebar-foreground">Admin Panel</span>
           </div>
         </SidebarHeader>

@@ -11,10 +11,11 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Landmark, Menu, ShieldCheck, ShoppingCart, Sparkles, UserCircle } from "lucide-react";
+import { Landmark, Menu, ShieldCheck, ShoppingCart, Sparkles, UserCircle, Briefcase } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { ModeToggle } from "../mode-toggle";
 
 const navLinks = [
   { href: "/products", label: "Productos", icon: ShoppingCart },
@@ -57,15 +58,16 @@ const Header = () => {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center">
         <Link href="/" className="mr-6 flex items-center gap-2">
-          <ShieldCheck className="h-6 w-6 text-primary" />
-          <span className="font-headline text-lg font-semibold">Venta Digital Segura</span>
+          <Briefcase className="h-6 w-6 text-primary" />
+          <span className="font-headline text-lg font-semibold">Opportunity Group</span>
         </Link>
         <nav className="hidden md:flex items-center gap-4 text-sm lg:gap-6">
           {navLinks.map((link) => (
             <NavLink key={link.href} {...link} />
           ))}
         </nav>
-        <div className="flex flex-1 items-center justify-end gap-4">
+        <div className="flex flex-1 items-center justify-end gap-2">
+          <ModeToggle />
           <div className="hidden md:block">
             <UserMenu />
           </div>

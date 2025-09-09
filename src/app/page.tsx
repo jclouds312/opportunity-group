@@ -28,7 +28,7 @@ export default function Home() {
         <div className="container px-4 md:px-6">
           <div className="max-w-3xl mx-auto">
             <h1 className="font-headline text-4xl md:text-6xl lg:text-7xl font-bold mb-4 tracking-tight">
-              Venta Digital Segura
+              Opportunity Group
             </h1>
             <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
               Su puerta de entrada a productos digitales e inversiones inteligentes, impulsado por IA.
