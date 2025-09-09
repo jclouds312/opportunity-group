@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { ArrowRight, Landmark, ShoppingCart, Sparkles, Star, Quote } from 'lucide-react';
+import { ArrowRight, Landmark, ShieldCheck, Sparkles, Star, Quote } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -31,11 +31,11 @@ export default function Home() {
               Opportunity Group
             </h1>
             <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
-              Su puerta de entrada a productos digitales e inversiones inteligentes, impulsado por IA.
+              Tu futuro asegurado. Soluciones digitales en seguros y finanzas, impulsadas por IA.
             </p>
             <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
               <Link href="/products">
-                Empezar a Explorar <ArrowRight className="ml-2" />
+                Descubrir Seguros <ArrowRight className="ml-2" />
               </Link>
             </Button>
           </div>
@@ -47,16 +47,16 @@ export default function Home() {
           <div className="text-center mb-12">
             <h2 className="font-headline text-3xl md:text-4xl font-bold">Nuestros Servicios</h2>
             <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">
-              Descubra un mundo de oportunidades con nuestra selección de productos, inversiones y recomendaciones personalizadas.
+              Descubra un mundo de oportunidades con nuestra selección de seguros, inversiones y recomendaciones personalizadas.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Card className="flex flex-col overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
               <CardHeader className="items-center text-center">
                 <div className="p-4 bg-primary/10 rounded-full mb-4">
-                  <ShoppingCart className="h-8 w-8 text-primary" />
+                  <ShieldCheck className="h-8 w-8 text-primary" />
                 </div>
-                <CardTitle className="font-headline">Productos Digitales</CardTitle>
+                <CardTitle className="font-headline">Seguros Digitales</CardTitle>
               </CardHeader>
               <CardContent className="flex-grow flex flex-col">
                 {productFeatureImage && (
@@ -72,12 +72,12 @@ export default function Home() {
                   </div>
                 )}
                 <CardDescription className="text-sm mb-4 flex-grow">
-                  Explore un catálogo seleccionado de software de vanguardia, cursos en línea y más, todo verificado para su seguridad y calidad.
+                  Protege lo que más importa con nuestra gama de seguros digitales. Fáciles de contratar, gestionar y sin papeleo.
                 </CardDescription>
               </CardContent>
               <CardFooter>
                  <Button asChild variant="outline" className="w-full">
-                  <Link href="/products">Ver Productos</Link>
+                  <Link href="/products">Ver Seguros</Link>
                 </Button>
               </CardFooter>
             </Card>
@@ -118,7 +118,7 @@ export default function Home() {
                 <div className="p-4 bg-primary/10 rounded-full mb-4">
                   <Sparkles className="h-8 w-8 text-primary" />
                 </div>
-                <CardTitle className="font-headline">Recomendaciones con IA</CardTitle>
+                <CardTitle className="font-headline">Asesoramiento con IA</CardTitle>
               </CardHeader>
               <CardContent className="flex-grow flex flex-col">
                 {aiFeatureImage && (
@@ -134,7 +134,7 @@ export default function Home() {
                   </div>
                 )}
                 <CardDescription className="text-sm mb-4 flex-grow">
-                  Nuestro motor de IA analiza su perfil para sugerir productos e inversiones que se alinean perfectamente con sus intereses y metas.
+                   Nuestro motor de IA analiza su perfil para sugerir los seguros e inversiones que mejor se adaptan a sus necesidades y metas.
                 </CardDescription>
               </CardContent>
                <CardFooter>
@@ -152,27 +152,27 @@ export default function Home() {
           <div className="text-center mb-12">
             <h2 className="font-headline text-3xl md:text-4xl font-bold">Lo que dicen nuestros clientes</h2>
             <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">
-              Descubra por qué los inversores y emprendedores confían en Opportunity Group.
+              Descubra por qué los clientes confían en Opportunity Group para su seguridad financiera.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
                 name: 'Carlos Rodríguez',
-                title: 'Inversor Tecnológico',
-                quote: 'La plataforma me dio acceso a oportunidades de inversión que no habría encontrado en ningún otro lugar. ¡Mi cartera nunca ha estado mejor!',
+                title: 'Cliente Satisfecho',
+                quote: 'Contratar mi seguro de auto fue increíblemente fácil y rápido. ¡Todo el proceso fue 100% digital y sin complicaciones!',
                 avatarSeed: 'carlos-rodriguez'
               },
               {
                 name: 'Laura Gómez',
-                title: 'Emprendedora Digital',
-                quote: 'Gracias a las recomendaciones de la IA, pude elegir los productos digitales perfectos para lanzar mi nuevo negocio. ¡Un servicio invaluable!',
+                title: 'Familia Protegida',
+                quote: 'Gracias a las recomendaciones de la IA, encontré el seguro de vida perfecto para mi familia. Me siento tranquila y segura.',
                 avatarSeed: 'laura-gomez'
               },
               {
                 name: 'Alejandro Torres',
-                title: 'Consultor Financiero',
-                quote: 'Opportunity Group ha simplificado mi proceso de diversificación. La interfaz es intuitiva y el soporte al cliente es de primera clase.',
+                title: 'Inversor Inteligente',
+                quote: 'Opportunity Group no solo me ayudó a asegurar mi patrimonio, sino que también me ofreció excelentes opciones para hacerlo crecer.',
                 avatarSeed: 'alejandro-torres'
               }
             ].map((testimonial) => (

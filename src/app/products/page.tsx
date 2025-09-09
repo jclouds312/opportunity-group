@@ -6,30 +6,30 @@ import Image from "next/image";
 const products = [
   {
     id: 1,
-    name: "Suite de Productividad Pro",
-    description: "Un conjunto completo de herramientas para optimizar su flujo de trabajo y aumentar la eficiencia.",
-    price: "$49.99",
+    name: "Seguro de Vida Digital",
+    description: "Proteja el futuro de su familia con una póliza de seguro de vida flexible y accesible. Contratación 100% online.",
+    price: "Desde $15/mes",
     image: PlaceHolderImages.find(p => p.id === 'product-1'),
   },
   {
     id: 2,
-    name: "Curso de Marketing Digital Avanzado",
-    description: "Aprenda estrategias de vanguardia para hacer crecer su negocio en línea de la mano de expertos de la industria.",
-    price: "$99.99",
+    name: "Seguro de Salud Personalizado",
+    description: "Cobertura médica a su medida. Elija los beneficios que necesita y pague solo por ellos.",
+    price: "Desde $45/mes",
     image: PlaceHolderImages.find(p => p.id === 'product-2'),
   },
   {
     id: 3,
-    name: "Colección de Ebooks de Inversión",
-    description: "Una biblioteca de conocimientos sobre estrategias de inversión, análisis de mercado y gestión de riesgos.",
-    price: "$29.99",
+    name: "Seguro para Auto Inteligente",
+    description: "Obtenga tarifas basadas en su conducción y gestione su póliza desde nuestra app.",
+    price: "Desde $25/mes",
     image: PlaceHolderImages.find(p => p.id === 'product-3'),
   },
   {
     id: 4,
-    name: "Software de Análisis de Datos IA",
-    description: "Visualice sus datos y obtenga información procesable con el poder de la inteligencia artificial.",
-    price: "$149.99",
+    name: "Seguro de Hogar Completo",
+    description: "Proteja su vivienda y sus pertenencias contra todo riesgo con nuestra cobertura integral.",
+    price: "Desde $20/mes",
     image: PlaceHolderImages.find(p => p.id === 'product-4'),
   },
 ];
@@ -39,9 +39,9 @@ export default function ProductsPage() {
   return (
     <div className="container mx-auto px-4 md:px-6 py-12">
       <div className="text-center mb-12">
-        <h1 className="font-headline text-4xl md:text-5xl font-bold">Catálogo de Productos Digitales</h1>
+        <h1 className="font-headline text-4xl md:text-5xl font-bold">Catálogo de Seguros Digitales</h1>
         <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">
-          Explore nuestra selección de productos y servicios digitales de alta calidad, diseñados para potenciar su vida y negocio.
+          Encuentre la cobertura perfecta para sus necesidades. Nuestros seguros son fáciles de entender, contratar y gestionar.
         </p>
       </div>
 
@@ -67,7 +67,7 @@ export default function ProductsPage() {
             </CardContent>
             <CardFooter className="flex justify-between items-center">
               <div className="text-lg font-bold text-primary">{product.price}</div>
-              <Button>Comprar Ahora</Button>
+              <Button>Contratar Ahora</Button>
             </CardFooter>
           </Card>
         ))}

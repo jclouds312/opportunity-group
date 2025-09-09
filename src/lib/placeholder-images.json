@@ -2,15 +2,15 @@
   "placeholderImages": [
     {
       "id": "hero-background",
-      "description": "Miami skyline at sunset",
-      "imageUrl": "https://picsum.photos/seed/miami-skyline/1920/1080",
-      "imageHint": "Miami skyline"
+      "description": "Family enjoying a sunny day, protected and happy",
+      "imageUrl": "https://picsum.photos/seed/happy-family/1920/1080",
+      "imageHint": "happy family"
     },
     {
       "id": "product-feature",
-      "description": "Business professional using a tablet in a modern office",
-      "imageUrl": "https://picsum.photos/seed/office-tablet/600/400",
-      "imageHint": "business professional"
+      "description": "A person using a smartphone to manage their digital insurance policy",
+      "imageUrl": "https://picsum.photos/seed/digital-insurance/600/400",
+      "imageHint": "digital insurance"
     },
     {
       "id": "investment-feature",
@@ -20,33 +20,33 @@
     },
     {
       "id": "ai-feature",
-      "description": "Futuristic AI brain graphic",
+      "description": "Futuristic AI brain graphic providing smart recommendations",
       "imageUrl": "https://picsum.photos/seed/ai-brain/600/400",
       "imageHint": "artificial intelligence"
     },
     {
       "id": "product-1",
-      "description": "Digital product placeholder 1",
-      "imageUrl": "https://picsum.photos/seed/10/600/400",
-      "imageHint": "software interface"
+      "description": "Icon representing life insurance",
+      "imageUrl": "https://picsum.photos/seed/life-insurance/600/400",
+      "imageHint": "life insurance"
     },
     {
       "id": "product-2",
-      "description": "Digital product placeholder 2",
-      "imageUrl": "https://picsum.photos/seed/11/600/400",
-      "imageHint": "online course"
+      "description": "Icon representing health insurance",
+      "imageUrl": "https://picsum.photos/seed/health-insurance/600/400",
+      "imageHint": "health insurance"
     },
     {
       "id": "product-3",
-      "description": "Digital product placeholder 3",
-      "imageUrl": "https://picsum.photos/seed/12/600/400",
-      "imageHint": "ebook cover"
+      "description": "Icon representing car insurance",
+      "imageUrl": "https://picsum.photos/seed/car-insurance/600/400",
+      "imageHint": "car insurance"
     },
      {
       "id": "product-4",
-      "description": "Digital product placeholder 4",
-      "imageUrl": "https://picsum.photos/seed/13/600/400",
-      "imageHint": "analytics dashboard"
+      "description": "Icon representing home insurance",
+      "imageUrl": "https://picsum.photos/seed/home-insurance/600/400",
+      "imageHint": "home insurance"
     },
     {
       "id": "investment-1",
