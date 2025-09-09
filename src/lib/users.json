@@ -5,6 +5,10 @@
     "role": "admin"
   },
   {
+    "email": "admin@example.com",
+    "role": "admin"
+  },
+  {
     "email": "cliente@example.com",
     "role": "client"
   }
