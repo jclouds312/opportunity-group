@@ -32,28 +32,28 @@ const Header = () => {
   const NavLink = ({ href, label, icon: Icon }: typeof navLinks[0]) => {
     const isActive = pathname === href;
     return (
-      <Link href={href} legacyBehavior passHref>
-        <a
-          className={cn(
-            "flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors",
-            isActive
-              ? "bg-primary/10 text-primary"
-              : "text-foreground/70 hover:bg-primary/5 hover:text-primary"
-          )}
-        >
-          <Icon className="h-4 w-4" />
-          {label}
-        </a>
+      <Link
+        href={href}
+        className={cn(
+          "flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors",
+          isActive
+            ? "bg-primary/10 text-primary"
+            : "text-foreground/70 hover:bg-primary/5 hover:text-primary"
+        )}
+      >
+        <Icon className="h-4 w-4" />
+        {label}
       </Link>
     );
   };
   
   const MobileNavLink = ({ href, label, icon: Icon }: typeof navLinks[0]) => (
-    <Link href={href} legacyBehavior passHref>
-      <a className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary">
-        <Icon className="h-5 w-5" />
-        <span className="text-lg">{label}</span>
-      </a>
+    <Link
+      href={href}
+      className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+    >
+      <Icon className="h-5 w-5" />
+      <span className="text-lg">{label}</span>
     </Link>
   );
 

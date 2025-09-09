@@ -61,7 +61,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         <SidebarContent>
           <SidebarMenu>
             <SidebarMenuItem>
-              <SidebarMenuButton href="/admin" tooltip="Dashboard" asChild>
+              <SidebarMenuButton href="/admin" tooltip="Dashboard">
                 <Link href="/admin">
                   <LayoutDashboard />
                   <span>Dashboard</span>
@@ -73,7 +73,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             <SidebarGroupLabel>Gestionar</SidebarGroupLabel>
             <SidebarMenu>
               <SidebarMenuItem>
-                <SidebarMenuButton tooltip="Usuarios" asChild>
+                <SidebarMenuButton tooltip="Usuarios">
                   <Link href="#">
                     <Users />
                     <span>Usuarios</span>
@@ -81,7 +81,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <SidebarMenuButton tooltip="Productos" asChild>
+                <SidebarMenuButton tooltip="Productos">
                   <Link href="#">
                     <ShoppingBag />
                     <span>Productos</span>
@@ -89,7 +89,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <SidebarMenuButton tooltip="Inversiones" asChild>
+                <SidebarMenuButton tooltip="Inversiones">
                   <Link href="#">
                     <Landmark />
                     <span>Inversiones</span>
@@ -102,7 +102,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         <SidebarFooter>
           <SidebarMenu>
             <SidebarMenuItem>
-              <SidebarMenuButton tooltip="Salir" asChild>
+              <SidebarMenuButton tooltip="Salir">
                 <Link href="/">
                   <LogOut />
                   <span>Salir</span>
