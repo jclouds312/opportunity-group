@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { ArrowRight, Landmark, ShoppingCart, Sparkles } from 'lucide-react';
+import { ArrowRight, Landmark, ShoppingCart, Sparkles, Star, Quote } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -51,13 +51,12 @@ export default function Home() {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="flex flex-col hover:shadow-xl transition-shadow duration-300">
+            <Card className="flex flex-col overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
               <CardHeader className="items-center text-center">
                 <div className="p-4 bg-primary/10 rounded-full mb-4">
                   <ShoppingCart className="h-8 w-8 text-primary" />
                 </div>
                 <CardTitle className="font-headline">Productos Digitales</CardTitle>
-                <CardDescription>Compre de forma segura los mejores productos y servicios digitales.</CardDescription>
               </CardHeader>
               <CardContent className="flex-grow flex flex-col">
                 {productFeatureImage && (
@@ -72,22 +71,23 @@ export default function Home() {
                     />
                   </div>
                 )}
-                <p className="text-sm text-muted-foreground mb-4 flex-grow">
+                <CardDescription className="text-sm mb-4 flex-grow">
                   Explore un catálogo seleccionado de software de vanguardia, cursos en línea y más, todo verificado para su seguridad y calidad.
-                </p>
-                <Button asChild variant="outline">
+                </CardDescription>
+              </CardContent>
+              <CardFooter>
+                 <Button asChild variant="outline" className="w-full">
                   <Link href="/products">Ver Productos</Link>
                 </Button>
-              </CardContent>
+              </CardFooter>
             </Card>
 
-            <Card className="flex flex-col hover:shadow-xl transition-shadow duration-300">
+            <Card className="flex flex-col overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
               <CardHeader className="items-center text-center">
                 <div className="p-4 bg-primary/10 rounded-full mb-4">
                   <Landmark className="h-8 w-8 text-primary" />
                 </div>
                 <CardTitle className="font-headline">Inversiones Inteligentes</CardTitle>
-                <CardDescription>Acceda a oportunidades de inversión exclusivas.</CardDescription>
               </CardHeader>
               <CardContent className="flex-grow flex flex-col">
                 {investmentFeatureImage && (
@@ -102,22 +102,23 @@ export default function Home() {
                     />
                   </div>
                 )}
-                <p className="text-sm text-muted-foreground mb-4 flex-grow">
+                <CardDescription className="text-sm mb-4 flex-grow">
                   Diversifique su cartera con nuestra gama de opciones de inversión, diseñadas para diferentes perfiles de riesgo y objetivos financieros.
-                </p>
-                <Button asChild variant="outline">
+                </CardDescription>
+              </CardContent>
+              <CardFooter>
+                <Button asChild variant="outline" className="w-full">
                   <Link href="/investments">Explorar Inversiones</Link>
                 </Button>
-              </CardContent>
+              </CardFooter>
             </Card>
 
-            <Card className="flex flex-col hover:shadow-xl transition-shadow duration-300">
+            <Card className="flex flex-col overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
               <CardHeader className="items-center text-center">
                 <div className="p-4 bg-primary/10 rounded-full mb-4">
                   <Sparkles className="h-8 w-8 text-primary" />
                 </div>
                 <CardTitle className="font-headline">Recomendaciones con IA</CardTitle>
-                <CardDescription>Asesoramiento personalizado para sus próximas decisiones.</CardDescription>
               </CardHeader>
               <CardContent className="flex-grow flex flex-col">
                 {aiFeatureImage && (
@@ -132,14 +133,72 @@ export default function Home() {
                     />
                   </div>
                 )}
-                <p className="text-sm text-muted-foreground mb-4 flex-grow">
+                <CardDescription className="text-sm mb-4 flex-grow">
                   Nuestro motor de IA analiza su perfil para sugerir productos e inversiones que se alinean perfectamente con sus intereses y metas.
-                </p>
-                <Button asChild variant="outline">
+                </CardDescription>
+              </CardContent>
+               <CardFooter>
+                <Button asChild variant="outline" className="w-full">
                   <Link href="/recommendations">Obtener Recomendaciones</Link>
                 </Button>
-              </CardContent>
+              </CardFooter>
             </Card>
+          </div>
+        </div>
+      </section>
+
+       <section id="testimonials" className="py-16 md:py-24 bg-secondary/50">
+        <div className="container px-4 md:px-6">
+          <div className="text-center mb-12">
+            <h2 className="font-headline text-3xl md:text-4xl font-bold">Lo que dicen nuestros clientes</h2>
+            <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">
+              Descubra por qué los inversores y emprendedores confían en Opportunity Group.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                name: 'Carlos Rodríguez',
+                title: 'Inversor Tecnológico',
+                quote: 'La plataforma me dio acceso a oportunidades de inversión que no habría encontrado en ningún otro lugar. ¡Mi cartera nunca ha estado mejor!',
+                avatarSeed: 'carlos-rodriguez'
+              },
+              {
+                name: 'Laura Gómez',
+                title: 'Emprendedora Digital',
+                quote: 'Gracias a las recomendaciones de la IA, pude elegir los productos digitales perfectos para lanzar mi nuevo negocio. ¡Un servicio invaluable!',
+                avatarSeed: 'laura-gomez'
+              },
+              {
+                name: 'Alejandro Torres',
+                title: 'Consultor Financiero',
+                quote: 'Opportunity Group ha simplificado mi proceso de diversificación. La interfaz es intuitiva y el soporte al cliente es de primera clase.',
+                avatarSeed: 'alejandro-torres'
+              }
+            ].map((testimonial) => (
+              <Card key={testimonial.name} className="bg-card p-6 flex flex-col items-center text-center">
+                 <Image
+                  src={`https://picsum.photos/seed/${testimonial.avatarSeed}/100/100`}
+                  alt={`Avatar de ${testimonial.name}`}
+                  width={80}
+                  height={80}
+                  className="rounded-full mb-4"
+                />
+                <CardContent className="p-0 flex-grow">
+                  <Quote className="w-8 h-8 text-primary/50 mb-4 mx-auto" />
+                  <p className="text-muted-foreground italic mb-4">"{testimonial.quote}"</p>
+                  <div className="flex justify-center text-yellow-500 mb-2">
+                      <Star className="w-5 h-5" />
+                      <Star className="w-5 h-5" />
+                      <Star className="w-5 h-5" />
+                      <Star className="w-5 h-5" />
+                      <Star className="w-5 h-5" />
+                  </div>
+                  <h3 className="font-bold font-headline">{testimonial.name}</h3>
+                  <p className="text-sm text-muted-foreground">{testimonial.title}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>

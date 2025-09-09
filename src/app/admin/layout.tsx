@@ -62,10 +62,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <SidebarMenu>
             <SidebarMenuItem>
               <SidebarMenuButton href="/admin" tooltip="Dashboard">
-                <Link href="/admin">
-                  <LayoutDashboard />
-                  <span>Dashboard</span>
-                </Link>
+                <LayoutDashboard />
+                <span>Dashboard</span>
               </SidebarMenuButton>
             </SidebarMenuItem>
           </SidebarMenu>
@@ -73,24 +71,24 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             <SidebarGroupLabel>Gestionar</SidebarGroupLabel>
             <SidebarMenu>
               <SidebarMenuItem>
-                <SidebarMenuButton tooltip="Usuarios">
-                  <Link href="#">
+                <SidebarMenuButton asChild tooltip="Usuarios">
+                  <Link href="/admin/users">
                     <Users />
                     <span>Usuarios</span>
                   </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <SidebarMenuButton tooltip="Productos">
-                  <Link href="#">
+                <SidebarMenuButton asChild tooltip="Productos">
+                  <Link href="/admin/products">
                     <ShoppingBag />
                     <span>Productos</span>
                   </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <SidebarMenuButton tooltip="Inversiones">
-                  <Link href="#">
+                <SidebarMenuButton asChild tooltip="Inversiones">
+                   <Link href="/admin/investments">
                     <Landmark />
                     <span>Inversiones</span>
                   </Link>
@@ -102,7 +100,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         <SidebarFooter>
           <SidebarMenu>
             <SidebarMenuItem>
-              <SidebarMenuButton tooltip="Salir">
+              <SidebarMenuButton asChild tooltip="Salir">
                 <Link href="/">
                   <LogOut />
                   <span>Salir</span>
