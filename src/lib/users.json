@@ -1,0 +1,11 @@
+
+[
+  {
+    "email": "mateo@hurtado.com",
+    "role": "admin"
+  },
+  {
+    "email": "cliente@example.com",
+    "role": "client"
+  }
+]

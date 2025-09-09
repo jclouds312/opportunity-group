@@ -11,11 +11,14 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Landmark, Menu, ShieldCheck, ShoppingCart, Sparkles, UserCircle, Briefcase } from "lucide-react";
+import { Landmark, Menu, LogOut, ShoppingCart, Sparkles, UserCircle, Briefcase, User as UserIcon } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { ModeToggle } from "../mode-toggle";
+import { useAuth } from "@/hooks/use-auth";
+import { auth } from "@/lib/firebase";
+import { signOut } from "firebase/auth";
 
 const navLinks = [
   { href: "/products", label: "Productos", icon: ShoppingCart },
@@ -96,15 +99,49 @@ const Header = () => {
 };
 
 const UserMenu = ({ mobile = false }: { mobile?: boolean }) => {
+  const { user, userRole, loading } = useAuth();
+
+  const handleLogout = async () => {
+    await signOut(auth);
+  };
+
+  if (loading) {
+     return null;
+  }
+
   if (mobile) {
     return (
       <div className="grid gap-4">
-        <Link href="/login" className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary text-lg">
-          Iniciar Sesión
-        </Link>
-        <Link href="/signup" className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary text-lg">
-          Registrarse
-        </Link>
+        {user ? (
+          <>
+            <div className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground">
+               <Avatar className="h-10 w-10">
+                <AvatarImage src={user.photoURL || `https://picsum.photos/seed/${user.uid}/40/40`} />
+                <AvatarFallback>
+                  {user.displayName?.charAt(0) || <UserIcon />}
+                </AvatarFallback>
+              </Avatar>
+              <span className="text-lg font-medium">{user.displayName || user.email}</span>
+            </div>
+             {userRole === 'admin' && (
+              <Link href="/admin" className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary text-lg">
+                Panel Admin
+              </Link>
+            )}
+            <button onClick={handleLogout} className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary text-lg text-left">
+              Cerrar Sesión
+            </button>
+          </>
+        ) : (
+          <>
+            <Link href="/login" className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary text-lg">
+              Iniciar Sesión
+            </Link>
+            <Link href="/signup" className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary text-lg">
+              Registrarse
+            </Link>
+          </>
+        )}
       </div>
     );
   }
@@ -114,22 +151,44 @@ const UserMenu = ({ mobile = false }: { mobile?: boolean }) => {
       <DropdownMenuTrigger asChild>
         <Button variant="secondary" size="icon" className="rounded-full">
           <Avatar>
-            <AvatarImage src="https://picsum.photos/seed/user/40/40" />
-            <AvatarFallback>
-              <UserCircle />
-            </AvatarFallback>
+            {user ? (
+              <>
+                 <AvatarImage src={user.photoURL || `https://picsum.photos/seed/${user.uid}/40/40`} />
+                <AvatarFallback>{user.displayName?.charAt(0) || <UserIcon />}</AvatarFallback>
+              </>
+            ) : (
+              <AvatarFallback>
+                <UserCircle />
+              </AvatarFallback>
+            )}
           </Avatar>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuLabel>Mi Cuenta</DropdownMenuLabel>
-        <DropdownMenuSeparator />
-        <DropdownMenuItem asChild><Link href="/admin">Panel Admin</Link></DropdownMenuItem>
-        <DropdownMenuItem>Perfil</DropdownMenuItem>
-        <DropdownMenuItem>Facturación</DropdownMenuItem>
-        <DropdownMenuSeparator />
-        <DropdownMenuItem asChild><Link href="/login">Iniciar Sesión</Link></DropdownMenuItem>
-        <DropdownMenuItem asChild><Link href="/signup">Registrarse</Link></DropdownMenuItem>
+        {user ? (
+          <>
+            <DropdownMenuLabel>{user.displayName || user.email}</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            {userRole === 'admin' && (
+              <DropdownMenuItem asChild>
+                <Link href="/admin">Panel Admin</Link>
+              </DropdownMenuItem>
+            )}
+            <DropdownMenuItem>Perfil</DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem onClick={handleLogout} className="flex items-center gap-2 cursor-pointer">
+              <LogOut />
+              <span>Cerrar Sesión</span>
+            </DropdownMenuItem>
+          </>
+        ) : (
+          <>
+            <DropdownMenuLabel>Mi Cuenta</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem asChild><Link href="/login">Iniciar Sesión</Link></DropdownMenuItem>
+            <DropdownMenuItem asChild><Link href="/signup">Registrarse</Link></DropdownMenuItem>
+          </>
+        )}
       </DropdownMenuContent>
     </DropdownMenu>
   );

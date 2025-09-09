@@ -1,3 +1,8 @@
+"use client";
+
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { useAuth } from '@/hooks/use-auth';
 import {
   SidebarProvider,
   Sidebar,
@@ -20,11 +25,30 @@ import {
   ShoppingBag,
   Users,
   Landmark,
-  Briefcase
+  Briefcase,
+  Loader2,
+  User as UserIcon,
 } from 'lucide-react';
 import Link from 'next/link';
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
+  const { user, userRole, loading } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!loading && (userRole !== 'admin' || !user)) {
+      router.push('/login');
+    }
+  }, [user, userRole, loading, router]);
+
+  if (loading || userRole !== 'admin' || !user) {
+    return (
+      <div className="flex h-screen items-center justify-center">
+        <Loader2 className="h-12 w-12 animate-spin text-primary" />
+      </div>
+    );
+  }
+
   return (
     <SidebarProvider>
       <Sidebar>
@@ -96,8 +120,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           </div>
           <Button variant="ghost" size="icon" className="rounded-full">
             <Avatar>
-              <AvatarImage src="https://picsum.photos/seed/admin/40/40" />
-              <AvatarFallback>A</AvatarFallback>
+              <AvatarImage src={user.photoURL || `https://picsum.photos/seed/${user.uid}/40/40`} />
+              <AvatarFallback>
+                {user.displayName?.charAt(0) || <UserIcon />}
+              </AvatarFallback>
             </Avatar>
             <span className="sr-only">Toggle user menu</span>
           </Button>
