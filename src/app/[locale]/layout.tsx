@@ -1,25 +1,26 @@
 import type { Metadata } from 'next';
-import './globals.css';
+import '../globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { ThemeProvider } from '@/components/theme-provider';
 import { AuthProvider } from '@/hooks/use-auth';
-import {NextIntlClientProvider, useMessages} from 'next-intl';
+import {NextIntlClientProvider} from 'next-intl';
+import {getMessages} from 'next-intl/server';
 
 export const metadata: Metadata = {
   title: 'Opportunity Group',
   description: 'Su puerta de entrada a productos digitales e inversiones inteligentes.',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
   params: {locale}
 }: {
   children: React.ReactNode;
   params: {locale: string};
 }) {
-  const messages = useMessages();
+  const messages = await getMessages();
 
   return (
     <html lang={locale} suppressHydrationWarning>

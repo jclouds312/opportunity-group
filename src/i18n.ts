@@ -1,18 +1,18 @@
-import { notFound } from 'next/navigation';
 import { getRequestConfig } from 'next-intl/server';
+import en from '../locales/en.json';
+import es from '../locales/es.json';
 
-const locales = ['en', 'es'];
+const locales = { en, es };
 
 export default getRequestConfig(async ({ locale }) => {
-  if (!locales.includes(locale as any)) {
-    notFound();
+  // Validate that the incoming `locale` parameter is valid
+  if (locale !== 'en' && locale !== 'es') {
+    return {
+      messages: en,
+    };
   }
 
-  try {
-    const messages = (await import(`../locales/${locale}.json`)).default;
-    return { messages };
-  } catch (error) {
-    const messages = (await import(`../locales/en.json`)).default;
-    return { messages };
-  }
+  return {
+    messages: locales[locale] || en,
+  };
 });
