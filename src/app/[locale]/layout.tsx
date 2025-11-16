@@ -13,17 +13,13 @@ export const metadata: Metadata = {
   description: 'Su puerta de entrada a productos digitales e inversiones inteligentes.',
 };
 
-interface RootLayoutProps {
-  children: React.ReactNode;
-  params: {
-    locale: string;
-  };
-}
-
 export default async function RootLayout({ 
   children, 
   params: { locale } 
-}: RootLayoutProps) {
+}: {
+  children: React.ReactNode;
+  params: { locale: string };
+}) {
   const messages = await getMessages();
 
   return (
