@@ -9,19 +9,9 @@ Para comenzar a desarrollar, eche un vistazo a `src/app/page.tsx`.
 ## Funcionalidades
 
 *   **Autenticación de Usuarios:** Sistema de registro e inicio de sesión seguro utilizando Firebase Authentication (correo/contraseña y Google).
-*   **Gestión de Roles:** Diferenciación entre usuarios `admin` y `client`. El rol de administrador se asigna basado en el correo electrónico en el archivo `src/lib/users.json`.
-*   **Panel de Administración:** Una ruta protegida `/admin` a la que solo los usuarios administradores pueden acceder.
+*   **Panel de Administración:** Una ruta protegida `/admin` a la que solo los usuarios administradores pueden acceder. (Actualmente en desarrollo)
 *   **Tema Claro/Oscuro:** Interruptor de tema para una mejor experiencia de usuario.
 *   **Generación de Recomendaciones con IA:** Una página dedicada para que los usuarios obtengan recomendaciones de inversión personalizadas generadas por IA.
-
-### Usuario Administrador de Prueba
-
-Para acceder al panel de administración, primero debe registrar un usuario con el siguiente correo electrónico:
-
-*   **Email:** `mateo@hurtado.com`
-*   **Contraseña:** La que usted elija durante el registro.
-
-Una vez registrado e iniciada la sesión, verá el enlace "Panel Admin" en el menú de usuario.
 
 ## Despliegue
 

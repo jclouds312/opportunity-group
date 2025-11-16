@@ -4,7 +4,6 @@
 import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 import { onAuthStateChanged, User } from 'firebase/auth';
 import { auth } from '@/lib/firebase';
-import users from '@/lib/users.json';
 
 type UserRole = 'admin' | 'client' | null;
 
@@ -29,9 +28,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       if (currentUser) {
-        // Find user role from our "internal DB"
-        const userInDb = users.find(u => u.email === currentUser.email);
-        setUserRole(userInDb?.role === 'admin' ? 'admin' : 'client');
+        // Default role to 'client' for any signed-in user
+        setUserRole('client');
       } else {
         setUserRole(null);
       }
