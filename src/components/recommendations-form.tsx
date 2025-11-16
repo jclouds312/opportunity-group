@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useTransition } from "react";
@@ -17,8 +18,8 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Textarea } from "@/components/ui/textarea";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Loader2, Sparkles } from "lucide-react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
+import { Loader2, Sparkles, Clipboard, ClipboardCheck } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const formSchema = z.object({
@@ -33,6 +34,7 @@ const formSchema = z.object({
 export function RecommendationsForm() {
   const [isPending, startTransition] = useTransition();
   const [recommendations, setRecommendations] = useState<string | null>(null);
+  const [isCopied, setIsCopied] = useState(false);
   const { toast } = useToast();
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -45,6 +47,7 @@ export function RecommendationsForm() {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     setRecommendations(null);
+    setIsCopied(false);
     startTransition(async () => {
       const result = await generatePersonalizedRecommendations(values);
       if (result && result.recommendations) {
@@ -58,6 +61,26 @@ export function RecommendationsForm() {
       }
     });
   }
+
+  const handleCopy = () => {
+    if (recommendations) {
+      navigator.clipboard.writeText(recommendations).then(() => {
+        setIsCopied(true);
+        toast({
+          title: "Copiado",
+          description: "Las recomendaciones se han copiado al portapapeles.",
+        });
+        setTimeout(() => setIsCopied(false), 2000);
+      }).catch(err => {
+        console.error('Failed to copy text: ', err);
+        toast({
+          variant: "destructive",
+          title: "Error al copiar",
+          description: "No se pudo copiar el texto al portapapeles.",
+        });
+      });
+    }
+  };
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
@@ -130,11 +153,18 @@ export function RecommendationsForm() {
       </Card>
       
       <Card className="flex flex-col">
-        <CardHeader>
-          <CardTitle className="font-headline text-2xl">Sus Recomendaciones Personalizadas</CardTitle>
-          <CardDescription>
-            Aquí se mostrarán las oportunidades de inversión sugeridas por nuestra IA.
-          </CardDescription>
+        <CardHeader className="flex-row items-center justify-between">
+          <div>
+            <CardTitle className="font-headline text-2xl">Sus Recomendaciones Personalizadas</CardTitle>
+            <CardDescription>
+              Aquí se mostrarán las oportunidades de inversión sugeridas por nuestra IA.
+            </CardDescription>
+          </div>
+          {recommendations && (
+            <Button variant="ghost" size="icon" onClick={handleCopy}>
+              {isCopied ? <ClipboardCheck className="h-5 w-5 text-green-500" /> : <Clipboard className="h-5 w-5" />}
+            </Button>
+          )}
         </CardHeader>
         <CardContent className="flex-grow">
           {isPending && (
