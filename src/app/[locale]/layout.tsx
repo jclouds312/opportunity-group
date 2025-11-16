@@ -5,23 +5,19 @@ import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { ThemeProvider } from '@/components/theme-provider';
 import { AuthProvider } from '@/hooks/use-auth';
-import {NextIntlClientProvider} from 'next-intl';
-import {getMessages} from 'next-intl/server';
 
 export const metadata: Metadata = {
   title: 'Opportunity Group',
   description: 'Su puerta de entrada a productos digitales e inversiones inteligentes.',
 };
 
-export default async function RootLayout({ 
+export default function RootLayout({ 
   children, 
   params: { locale } 
 }: {
   children: React.ReactNode;
   params: { locale: string };
 }) {
-  const messages = await getMessages();
-
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
@@ -30,7 +26,6 @@ export default async function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased">
-      <NextIntlClientProvider locale={locale} messages={messages}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -46,7 +41,6 @@ export default async function RootLayout({
             <Toaster />
           </AuthProvider>
         </ThemeProvider>
-        </NextIntlClientProvider>
       </body>
     </html>
   );
