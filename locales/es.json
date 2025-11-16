@@ -5,5 +5,9 @@
   },
   "footer": {
     "rights": "Todos los derechos reservados."
+  },
+  "NotFound": {
+    "title": "Página No Encontrada",
+    "description": "La página que estás buscando no existe."
   }
 }

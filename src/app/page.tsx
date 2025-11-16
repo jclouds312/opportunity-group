@@ -4,10 +4,10 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { ArrowRight, Landmark, ShieldCheck, Sparkles, Star, Quote } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getTranslator } from 'next-intl/server';
+import {useTranslations} from 'next-intl';
 
-export default async function Home() {
-  const t = await getTranslator('en', 'home');
+export default function Home() {
+  const t = useTranslations('home');
   const heroImage = PlaceHolderImages.find(p => p.id === 'hero-background');
   const productFeatureImage = PlaceHolderImages.find(p => p.id === 'product-feature');
   const investmentFeatureImage = PlaceHolderImages.find(p => p.id === 'investment-feature');
