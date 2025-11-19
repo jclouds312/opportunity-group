@@ -13,6 +13,6 @@ export default getRequestConfig(async ({locale}) => {
   }
  
   return {
-    messages: messages[locale]
+    messages: messages[locale as keyof typeof messages]
   };
 });
